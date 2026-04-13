@@ -59,7 +59,7 @@ with tab1:
             with st.spinner("Analyzing target configuration with Machine Learning pipeline..."):
                 try:
                     # Make a request to the live Flask API
-                    response = requests.post("http://localhost:5001/predict", json=payload, timeout=10)
+                    response = requests.post("predictor-ctr.streamlit.app", json=payload, timeout=10)
                     if response.status_code == 200:
                         data = response.json()
                         ctr_prob = data.get("predicted_ctr_probability", 0) * 100
